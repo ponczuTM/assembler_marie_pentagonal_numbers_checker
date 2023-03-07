@@ -1,0 +1,94 @@
+INPUT
+Test0A,  Skipcond 800
+Jump Test0B
+Jump Test0End
+Test0B,  Skipcond 000
+Jump Nope
+Jump Test0End
+Test0End,  Store n
+
+loop0,  Load N
+		Add One
+		Store N
+        Store A
+        Load Zero
+        Store O
+        Store B
+
+loop1,          Load O
+                Add N
+                Store O
+                Load A
+                Subt One
+                Store A
+                Skipcond 400
+                Jump loop1
+                Jump Endloop1
+Endloop1,       Load A
+        Add O
+        Store A
+        Load O
+        Add A
+        Add A
+        Subt N
+        Store O
+        Load Zero
+        Store A
+loop2,		    Load A
+                Add One
+                Store A
+                Load B
+                Add Two
+                Store B
+                Load O
+                Subt B
+                Skipcond 400
+                Jump tmp1
+                Jump Endloop2
+tmp1,			Skipcond 000
+                Jump loop2
+                Jump Endloop2
+Endloop2, 		Load A
+		Store O
+		Load Out
+        Add O
+        Store Out
+		Load n
+        Subt N
+        Skipcond 400
+        Jump loop0
+        Jump Endloop0
+Endloop0, Load Out
+Test1A,  Skipcond 800
+Jump Test1B
+Jump Test1End
+Test1B,  Skipcond 000
+Jump Nope
+Jump Test1End
+Test1End,  Output
+
+
+Jump End
+
+Nope, Clear
+Subt One
+Output
+Jump End
+
+Jup, Load One
+Output
+Jump End
+
+End, Halt
+
+
+N, DEC 0
+n, DEC 0
+O, DEC 0
+A, DEC 0
+B, DEC 0
+Out, DEC 0
+Two, DEC 2
+One, DEC 1
+Zero, DEC 0
+n24, DEC 24
